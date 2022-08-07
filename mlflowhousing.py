@@ -77,13 +77,17 @@ if __name__ == "__main__":
 
     # Read the wine-quality csv file (make sure you're running this from the root of MLflow!)
     data_path = "data/housing.csv"
-    train_x, train_y, test_x, test_y = load_data(data_path)
+
 
     c = float(sys.argv[1]) if len(sys.argv) > 1 else 30000.0
     k = str(sys.argv[2]) if len(sys.argv) > 2 else "linear"
 
     with mlflow.start_run(run_name="PARENT_RUN") as parent_run:
         mlflow.log_param("parent", "yes")
+        with mlflow.start_run(run_name="CHILD_RUN_DataLoad", nested=True) as child_run:
+            mlflow.log_param("child_DataLoad", "yes")
+            train_x, train_y, test_x, test_y = load_data(data_path)
+
         with mlflow.start_run(run_name="CHILD_RUN", nested=True) as child_run:
             mlflow.log_param("child", "yes")
             lr = SVR(C=c, kernel=k)
