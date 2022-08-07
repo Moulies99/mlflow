@@ -1,0 +1,15 @@
+artifact_uri: mlruns/0/c433b7b622fa475eb82af3c3ac911743/artifacts
+end_time: 1659812372994
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: c433b7b622fa475eb82af3c3ac911743
+run_uuid: c433b7b622fa475eb82af3c3ac911743
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1659812368923
+status: 3
+tags: []
+user_id: moulies_ram
